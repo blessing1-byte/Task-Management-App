@@ -1,0 +1,24 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "server for task management app",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blessing1-byte/Task-Management.git"
+  },
+  "author": "blessing udom",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/blessing1-byte/Task-Management/issues"
+  },
+  "homepage": "https://github.com/blessing1-byte/Task-Management#readme",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1"
+  }
+}
