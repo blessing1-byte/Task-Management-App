@@ -8,7 +8,7 @@ const routerPaths = [
     element: <App />,
     children: [
       { index: true, element: <HomeScreen /> },
-      { path: "/signUp", element: <SignUp /> },
+      { path: "/register", element: <SignUp /> },
     ],
   },
 ];

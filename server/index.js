@@ -11,6 +11,12 @@ console.log(`app is running on ${PORT}`);
 
 connectDB();
 
-app.use(e.json()); //without this req.body will be undefined.
+app.use(e.json()); //without this req.body will be undefined. always come before your route
+app.use(
+  cors({
+    origin: "http://localhost:5173/",
+    credentials: true,
+  }),
+);
 app.use("/api/user", userRoutes);
 app.listen(PORT);

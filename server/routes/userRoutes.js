@@ -2,7 +2,7 @@ import e from "express";
 import { addUser, getUserById } from "../controller/registerUser.js";
 
 const router = e.Router();
-router.route("/").post(addUser);
+router.route("/register-user").post(addUser);
 
 router.route("/:id").get(getUserById);
 
