@@ -6,6 +6,10 @@ const SignUp = () => {
     email: "",
     password: "",
   });
+
+  const clearInputs = () => {
+    setUserData({ name: "", email: "", password: "  " });
+  };
   const [registerUser, { data, isLoading, isError }] =
     useRegisterUserMutation();
 
@@ -21,7 +25,8 @@ const SignUp = () => {
     e.preventDefault();
     try {
       //unwrap the new data from store
-      await registerUser(userData).unwrap();com
+      await registerUser(userData).unwrap();
+      clearInputs();
     } catch (error) {
       console.log(`error: ${error.message}`);
     }
