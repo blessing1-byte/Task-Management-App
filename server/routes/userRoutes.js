@@ -1,10 +1,14 @@
 import e from "express";
-import { addUser, getUserById } from "../controller/registerUser.js";
+import {
+  registerUser,
+  getUserById,
+  loginUser,
+} from "../controller/userController.js";
 
 const router = e.Router();
-router.route("/register-user").post(addUser);
+router.route("/register-user").post(registerUser);
 
-// router.route("/:id").get(getUserById);
+router.route("/login").post(loginUser);
 
 export default router;
 
