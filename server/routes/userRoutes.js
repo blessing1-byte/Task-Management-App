@@ -1,14 +1,17 @@
 import e from "express";
 import {
   registerUser,
-  getUserById,
   loginUser,
+  getUserProfile,
 } from "../controller/userController.js";
+import authHandler from "../middleware/authHandler.js";
 
 const router = e.Router();
 router.route("/register-user").post(registerUser);
 
 router.route("/login").post(loginUser);
+
+router.route("/profile").get(authHandler, getUserProfile);
 
 export default router;
 

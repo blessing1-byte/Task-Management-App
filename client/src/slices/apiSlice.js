@@ -7,3 +7,5 @@ export const apiSlice = createApi({
   tagTypes: ["user", "task"],
   endpoints: (builder) => ({}),
 });
+
+//name, baseQuery, tagTypes, endpoints

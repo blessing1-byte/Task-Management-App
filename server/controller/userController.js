@@ -37,7 +37,7 @@ export const loginUser = asyncHandler(async (req, res, next) => {
     return;
   }
   //after passing email validation, compare password
-  // compare plain password with that fro the found email
+  // compare plain password with that from the found email
   const comparePassword = await bcrypt.compare(
     password,
     existingEmail.password,
@@ -64,8 +64,16 @@ Generate token
 Send success response
 */
 
-export const getUserById = asyncHandler(async (req, res) => {
-  const user = await User.findById(req.params.id);
+/*
+ authenticate -> display profile details
+*/
+
+export const getUserProfile = asyncHandler(async (req, res, next) => {
+  //get the user
+  // userId is coming from the token
+
+  const user = await User.findById(req.user.userId);
+
   if (!user) {
     return res.status(404).json({ message: "user not found" });
   }

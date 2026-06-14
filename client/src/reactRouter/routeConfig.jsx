@@ -1,6 +1,7 @@
 import App from "../App";
 import HomeScreen from "./../screens/HomeScreen.jsx";
 import SignUp from "./../screens/SignUp.jsx";
+import Login from "./../screens/Login.jsx";
 
 const routerPaths = [
   {
@@ -9,6 +10,7 @@ const routerPaths = [
     children: [
       { index: true, element: <HomeScreen /> },
       { path: "/register", element: <SignUp /> },
+      { path: "/login", element: <Login /> },
     ],
   },
 ];
