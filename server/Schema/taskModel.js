@@ -19,6 +19,7 @@ const taskSchema = mongoose.Schema(
       type: String,
       enum: ["pending", "in-progress", "completed"],
       required: true,
+      default: "pending",
     },
     priority: {
       type: String,
