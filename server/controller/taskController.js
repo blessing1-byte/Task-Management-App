@@ -34,6 +34,14 @@ export const getUserTasks = asyncHandler(async (req, res, next) => {
   }
   res.status(200).json({ tasks });
 });
+
+//Date format — MongoDB expects dates in YYYY-MM-DD format
+// {
+//   "title":"finish up task management app",
+//   "description": "will finish up",
+//   "priority": "high",
+//   "dueDate" : "2027-01-01"
+// }
 /* NOTE
 why cant we say!task
 
