@@ -23,16 +23,35 @@ export const createTask = asyncHandler(async (req, res, next) => {
 export const getUserTasks = asyncHandler(async (req, res, next) => {
   const user = req.user.userId;
   if (!user) {
-    res.status(401).json({ message: "unauthorized access" });
+    res.status(401).json({ message: "unauthorized access / expired token" });
     return;
   }
   const tasks = await tasksModel.find({ user });
+
   if (tasks.length == 0) {
     //using .length to check if the array of objects of task is empty
     res.status(500).json({ message: "bad request" });
     return;
   }
   res.status(200).json({ tasks });
+});
+
+export const getTaskById = asyncHandler(async (req, res, next) => {
+  const { _id } = req.params;
+  const selectedTask = await tasksModel.findById(_id);
+  //check if task exist
+  if (!selectedTask) {
+    res.status(404).json({ message: "task not found" });
+    return;
+  }
+
+  // even if the task exists, check that task.user matches req.user.userId so users can't access each other's tasks
+  if (!(req.user.userId == selectedTask.user)) {
+    res.status(401).json({ message: "unauthorized access" });
+    return;
+  }
+
+  res.status(200).json(selectedTask);
 });
 
 //Date format — MongoDB expects dates in YYYY-MM-DD format

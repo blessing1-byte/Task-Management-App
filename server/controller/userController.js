@@ -79,3 +79,11 @@ export const getUserProfile = asyncHandler(async (req, res, next) => {
   }
   res.json(user);
 });
+
+export const logOut = asyncHandler(async (req, res, next) => {
+  res.cookie("jwt", "", {
+    httpOnly: true,
+    expires: new Date(0),
+  });
+  res.status(200).json({ message: "Logged out Successfully" });
+});

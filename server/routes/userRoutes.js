@@ -3,6 +3,7 @@ import {
   registerUser,
   loginUser,
   getUserProfile,
+  logOut,
 } from "../controller/userController.js";
 import authHandler from "../middleware/authHandler.js";
 
@@ -10,6 +11,8 @@ const router = e.Router();
 router.route("/register-user").post(registerUser);
 
 router.route("/login").post(loginUser);
+
+router.route("/logout").post(logOut);
 
 router.route("/profile").get(authHandler, getUserProfile);
 

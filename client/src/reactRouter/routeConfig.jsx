@@ -2,6 +2,8 @@ import App from "../App";
 import HomeScreen from "./../screens/HomeScreen.jsx";
 import SignUp from "./../screens/SignUp.jsx";
 import Login from "./../screens/Login.jsx";
+import TaskScreen from "./../screens/TaskScreen.jsx";
+import ProfileScreen from "../screens/ProfileScreen.jsx";
 
 const routerPaths = [
   {
@@ -11,6 +13,8 @@ const routerPaths = [
       { index: true, element: <HomeScreen /> },
       { path: "/register", element: <SignUp /> },
       { path: "/login", element: <Login /> },
+      { path: "/createTask", element: <TaskScreen /> },
+      { path: "/profile", element: <ProfileScreen /> },
     ],
   },
 ];
